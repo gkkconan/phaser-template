@@ -9,8 +9,9 @@
     "strict": true,
     "strictPropertyInitialization": false,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "typeRoots": ["typings"]
   },
-  "include": ["src"],
+  "include": ["src", "typings"],
   "exclude": ["node_modules"]
 }

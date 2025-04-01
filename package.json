@@ -9,7 +9,6 @@
     "url": "https://github.com/gkkconan"
   },
   "scripts": {
-    "start": "vite",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"

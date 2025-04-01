@@ -1,5 +1,3 @@
-import { gameData } from '../typings/gameData';
-
 export let GameData: gameData = {
   globals: {
     gameWidth: 1280,
@@ -9,14 +7,14 @@ export let GameData: gameData = {
   },
 
   preloader: {
-    bgColor: "#ffffff",
-    loadingText: "Loading...",
     loadingTextFont: "Roboto",
     loadingTextComplete: "Enter a key to start...",
     loadingTextY: 700,
   },
 
-  images: [],
+  images: [
+    { name: 'phaser-logo', path: '/images/phaser-logo.png' }
+  ],
   tilemaps: [],
   atlas: [],
   spritesheets: [],

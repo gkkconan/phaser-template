@@ -1,4 +1,4 @@
-export interface gameData {
+interface gameData {
   globals: {
     gameWidth: number,
     gameHeight: number,
@@ -7,8 +7,6 @@ export interface gameData {
   },
 
   preloader: {
-    bgColor: string,
-    loadingText: string,
     loadingTextFont: string,
     loadingTextComplete: string,
     loadingTextY: number,
@@ -28,7 +26,7 @@ export interface gameData {
 
 interface ImageAsset { name: string; path: string; }
 interface TilemapAsset { key: string; path: string; }
-interface AtlasAsset { name: string; path: string; jsonpath: string; }
+interface AtlasAsset { key: string; path: string; jsonpath: string; }
 interface SpritesheetsAsset {
   name: string;
   path: string;
@@ -37,7 +35,7 @@ interface SpritesheetsAsset {
   frames: number;
   spacing?: number;
 }
-interface SoundAsset { name: string; path: Array<string>; }
+interface SoundAsset { name: string; paths: Array<string>; }
 interface VideoAsset { name: string; path: string; }
 interface ScriptAsset{ key: string; path: string; }
 interface FontAsset {

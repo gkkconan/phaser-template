@@ -12,8 +12,10 @@ window.addEventListener("load", () => {
     parent: "app",
     scale: {
       mode: Phaser.Scale.FIT,
-      width: GameData.globals.gameWidth,
-      height: GameData.globals.gameHeight,
+      // width: GameData.globals.gameWidth,
+      // height: GameData.globals.gameHeight,
+      width: window.innerWidth,
+      height: window.innerHeight,
     },
     scene: [
       Boot,
@@ -31,6 +33,9 @@ window.addEventListener("load", () => {
       pixelArt: false,
       antialias: true,
     },
+    loader: {
+        baseURL: '/assets/',
+      },
   };
 
   const game = new Phaser.Game(config); // game initializing according to configs
