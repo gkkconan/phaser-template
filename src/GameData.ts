@@ -3,11 +3,12 @@ export let GameData: gameData = {
     gameWidth: 1280,
     gameHeight: 800,
     bgColor: "#ffffff",
-    debug: false
+    debug: false,
+    defaultFont: { key: "Pixelify Sans", path: "/fonts/PixelifySans.ttf" }
   },
 
   preloader: {
-    loadingTextFont: "Roboto",
+    loadingTextFont: "Pixelify Sans",
     loadingTextColor: "#000000",
     loadingTextComplete: "Enter a key to start...",
     loadingTextY: 700,

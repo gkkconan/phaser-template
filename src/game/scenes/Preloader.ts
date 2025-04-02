@@ -5,9 +5,7 @@ export default class Preloader extends Phaser.Scene {
   private _loadingText: Phaser.GameObjects.Text;
   private _image: Phaser.GameObjects.Image;
 
-  update(delta: number){
-    this._image.angle += 1;
-  }
+  update(){ this._image.angle += 1; }
 
   init(){
     this._image = this.add.image(this.game.canvas.width / 2, this.game.canvas.height / 2, 'phaser-logo').setAlpha(1).setScale(0.1);
@@ -33,15 +31,14 @@ export default class Preloader extends Phaser.Scene {
     this.loadAssets();
   }
 
+  create(){
+    this.input.keyboard!.on('keydown-ESC', () => { this.goToMenu(); });
+  }
+
   loadAssets(){
+    this.load.on("start", () => { });
     this.load.on("complete", () => {
       this._loadingText.setText(GameData.preloader.loadingTextComplete);
-
-      this.input.keyboard!.on('keydown-ESC', () => {
-        this.scene.stop(this);
-        this.scene.start("Boot");
-      });
-
       this.input.keyboard!.on("keydown", () => {
         this.tweens.add({
           targets: [this._image, this._loadingText],
@@ -114,6 +111,11 @@ export default class Preloader extends Phaser.Scene {
         document.head.appendChild(fontStyle);
       });
     }
+  }
+
+  goToMenu(){
+    this.scene.stop(this);
+    this.scene.start("Boot");
   }
 
 }

@@ -3,7 +3,8 @@ interface gameData {
     gameWidth: number,
     gameHeight: number,
     bgColor: string,
-    debug: boolean
+    debug: boolean,
+    defaultFont: { key: string, path: string }
   },
 
   preloader: {
