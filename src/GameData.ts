@@ -8,12 +8,14 @@ export let GameData: gameData = {
 
   preloader: {
     loadingTextFont: "Roboto",
+    loadingTextColor: "#000000",
     loadingTextComplete: "Enter a key to start...",
     loadingTextY: 700,
   },
 
   images: [
-    { name: 'phaser-logo', path: '/images/phaser-logo.png' }
+    { name: 'phaser-logo', path: '/images/phaser-logo.png' },
+    { name: 'knight', path: '/images/knight.svg' }
   ],
   tilemaps: [],
   atlas: [],
@@ -21,7 +23,7 @@ export let GameData: gameData = {
   sounds: [],
   videos: [],
   scripts: [],
-  fonts: [],
+  fonts: [{ key: 'Boldonse', path: '/fonts/Boldonse.ttf' }],
+  webfonts: [{ key: 'Roboto' }, { key: 'Pixelify Sans' }, { key: 'Bungee Tint' }],
   bitmapfonts: [],
-  webfonts: [{ key: 'Roboto' }],
 };

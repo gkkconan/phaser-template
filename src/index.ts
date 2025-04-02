@@ -4,6 +4,7 @@ import { GameData } from "./GameData";
 // scenes
 import Boot from "./game/scenes/Boot";
 import Preloader from "./game/scenes/Preloader";
+import GamePlay from "./game/scenes/GamePlay";
 
 window.addEventListener("load", () => {
   const config: Phaser.Types.Core.GameConfig = {
@@ -19,7 +20,8 @@ window.addEventListener("load", () => {
     },
     scene: [
       Boot,
-      Preloader
+      Preloader,
+      GamePlay
     ],
     physics: {
       default: "arcade",

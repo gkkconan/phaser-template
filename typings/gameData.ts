@@ -8,6 +8,7 @@ interface gameData {
 
   preloader: {
     loadingTextFont: string,
+    loadingTextColor: string,
     loadingTextComplete: string,
     loadingTextY: number,
   },
@@ -40,7 +41,7 @@ interface VideoAsset { name: string; path: string; }
 interface ScriptAsset{ key: string; path: string; }
 interface FontAsset {
   key: string;
-  imgpath?: string;
   path?: string;
+  imgpath?: string;
   xmlpath?: string;
 }
