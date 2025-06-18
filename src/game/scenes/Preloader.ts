@@ -5,16 +5,7 @@ export default class Preloader extends Phaser.Scene {
   private _loadingText: Phaser.GameObjects.Text;
   private _image: Phaser.GameObjects.Image;
 
-  update(){ this._image.angle += 1; }
-
   init(){
-    this._image = this.add.image(this.game.canvas.width / 2, this.game.canvas.height / 2, 'phaser-logo').setAlpha(1).setScale(0.1);
-    this.tweens.add({
-      targets: [this._image],
-      alpha: 1,
-      duration: 500,
-    });
-
     this._loadingText = this.add
       .text(this.game.canvas.width / 2, GameData.preloader.loadingTextY, "")
       .setAlpha(1)
@@ -28,12 +19,22 @@ export default class Preloader extends Phaser.Scene {
   preload(){
     this.cameras.main.setBackgroundColor(GameData.globals.bgColor);
     this.load.script('webfont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
+    this.load.on('progress', (value: any) => this._loadingText.setText(`Loading: ${Math.round(value * 100)}%`) );
     this.loadAssets();
   }
 
   create(){
     this.input.keyboard!.on('keydown-ESC', () => { this.goToMenu(); });
+    this._image = this.add.image(this.game.canvas.width / 2, this.game.canvas.height / 2, 'phaser-logo').setAlpha(0).setScale(0.1);
+    
+    this.tweens.add({
+      targets: this._image,
+      alpha: 1,
+      duration: 500
+    });
   }
+
+  update(){ this._image.angle += 1; }
 
   loadAssets(){
     this.load.on("start", () => { });
@@ -46,7 +47,7 @@ export default class Preloader extends Phaser.Scene {
           duration: 500,
           onComplete: () => {
             this.scene.stop(this);
-            this.scene.start("GamePlay");
+            this.scene.start("Menu");
           },
         });
       });
@@ -115,7 +116,7 @@ export default class Preloader extends Phaser.Scene {
 
   goToMenu(){
     this.scene.stop(this);
-    this.scene.start("Boot");
+    this.scene.start("Menu");
   }
 
 }

@@ -2,7 +2,7 @@ import "phaser";
 import { GameData } from "./GameData";
 
 // scenes
-import Boot from "./game/scenes/Boot";
+import Menu from "./game/scenes/Menu";
 import Preloader from "./game/scenes/Preloader";
 import GamePlay from "./game/scenes/GamePlay";
 
@@ -19,8 +19,8 @@ window.addEventListener("load", () => {
       height: window.innerHeight,
     },
     scene: [
-      Boot,
       Preloader,
+      Menu,
       GamePlay
     ],
     physics: {
@@ -36,8 +36,8 @@ window.addEventListener("load", () => {
       antialias: true,
     },
     loader: {
-        baseURL: '/assets/',
-      },
+      baseURL: '/assets/',
+    },
   };
 
   const game = new Phaser.Game(config); // game initializing according to configs
