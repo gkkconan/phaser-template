@@ -45,11 +45,11 @@ src/
 │   ├── videos/             # VideoAsset
 │   ├── scripts/            # ScriptAsset
 │   ├── fonts/              # FontAsset
-│   ├── webfonts/           # FontAsset
 │   └── bitmapfonts/        # FontAsset bitmap
 ├── game/
 │   └── scenes/             # Game scenes
-│       ├── Menu.ts         # Load fonts or config
+│       ├── Menu.ts         # Displays Menu options
+│       ├── Boot.ts         # Loading complete text scene, leads to Menu
 │       ├── GamePlay.ts     # Main gameplay logic
 │       └── Preloader.ts    # Loads all assets
 ├── index.html              # HTML entry point
