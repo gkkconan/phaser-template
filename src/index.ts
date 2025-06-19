@@ -2,8 +2,9 @@ import "phaser";
 import { GameData } from "./GameData";
 
 // scenes
-import Menu from "./game/scenes/Menu";
 import Preloader from "./game/scenes/Preloader";
+import Boot from "./game/scenes/Boot";
+import Menu from "./game/scenes/Menu";
 import GamePlay from "./game/scenes/GamePlay";
 
 window.addEventListener("load", () => {
@@ -20,6 +21,7 @@ window.addEventListener("load", () => {
     },
     scene: [
       Preloader,
+      Boot,
       Menu,
       GamePlay
     ],

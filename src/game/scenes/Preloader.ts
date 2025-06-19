@@ -24,9 +24,8 @@ export default class Preloader extends Phaser.Scene {
   }
 
   create(){
-    this.input.keyboard!.on('keydown-ESC', () => { this.goToMenu(); });
     this._image = this.add.image(this.game.canvas.width / 2, this.game.canvas.height / 2, 'phaser-logo').setAlpha(0).setScale(0.1);
-    
+
     this.tweens.add({
       targets: this._image,
       alpha: 1,
@@ -39,18 +38,8 @@ export default class Preloader extends Phaser.Scene {
   loadAssets(){
     this.load.on("start", () => { });
     this.load.on("complete", () => {
-      this._loadingText.setText(GameData.preloader.loadingTextComplete);
-      this.input.keyboard!.on("keydown", () => {
-        this.tweens.add({
-          targets: [this._image, this._loadingText],
-          alpha: 0,
-          duration: 500,
-          onComplete: () => {
-            this.scene.stop(this);
-            this.scene.start("Menu");
-          },
-        });
-      });
+      this.scene.stop(this);
+      this.scene.start("Boot");
     });
 
     this.allAssets();
@@ -112,11 +101,6 @@ export default class Preloader extends Phaser.Scene {
         document.head.appendChild(fontStyle);
       });
     }
-  }
-
-  goToMenu(){
-    this.scene.stop(this);
-    this.scene.start("Menu");
   }
 
 }
